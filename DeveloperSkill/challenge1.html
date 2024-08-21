@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>Developer skill</h1>
+  </body>
+  <script>
+    function printForecast(arr) {
+      let forecastStr = '... ';
+      for (let i = 0; i < arr.length; i++) {
+        const day = i + 1;
+        const temperature = arr[i];
+        forecastStr += `${temperature}°C in ${day} ${day === 1 ? 'day' : 'days'} ... `;
+      }
+      console.log(forecastStr);
+    }
+    printForecast([17, 21, 23]);
+    printForecast([12, 5, -5, 0, 4]);
+  </script>
 </html>
