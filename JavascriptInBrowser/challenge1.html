@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+      }
+      .number {
+        width: 15rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <p class="message">Start...</p>
+      <p class="score">Score: <span id="score">20</span></p>
+      <p class="number" id="number">?</p>
+      <input type="number" id="guess" />
+      <button class="again">Again!</button>
+    </div>
+  </body>
+  <script>
+    let score = 20;
+    let secretNumber = Math.floor(Math.random() * 20) + 1;
+
+    const messageElement = document.querySelector('.message');
+    const scoreElement = document.getElementById('score');
+    const numberElement = document.getElementById('number');
+    const guessInput = document.getElementById('guess');
+    function resetGame() {
+      score = 20;
+      secretNumber = Math.floor(Math.random() * 20) + 1;
+      messageElement.textContent = 'Start...';
+      scoreElement.textContent = score;
+      numberElement.textContent = '?';
+      numberElement.style.width = '15rem';
+      document.body.style.backgroundColor = '#222';
+      guessInput.value = '';
+      guessInput.focus();
+    }
+    const againButton = document.querySelector('.again');
+    againButton.addEventListener('click', resetGame);
+  </script>
+</html>

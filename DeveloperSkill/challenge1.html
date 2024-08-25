@@ -13,8 +13,8 @@
       let forecastStr = '... ';
       for (let i = 0; i < arr.length; i++) {
         const day = i + 1;
-        const temperature = arr[i];
-        forecastStr += `${temperature}°C in ${day} ${day === 1 ? 'day' : 'days'} ... `;
+        const temp = arr[i];
+        forecastStr += `${temp}°C in ${day} ${day === 1 ? 'day' : 'days'} ... `;
       }
       console.log(forecastStr);
     }
