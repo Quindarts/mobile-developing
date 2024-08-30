@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Challenge 3</h1>
+  </body>
+  <script>
+    const gameEvents = new Map([
+      [17, '⚽ GOAL'],
+      [36, '� Substitution'],
+      [47, '⚽ GOAL'],
+      [61, '� Substitution'],
+      [64, '� Yellow card'],
+      [69, '� Red card'],
+      [70, '� Substitution'],
+      [72, '� Substitution'],
+      [76, '⚽ GOAL'],
+      [80, '⚽ GOAL'],
+      [92, '� Yellow card'],
+    ]);
+    //2
+    gameEvents.delete(64);
+
+    let end_game_time = [...gameEvents.keys()].pop();
+    let avg_time = end_game_time / gameEvents.size;
+    console.log(`An event happened, on average, every ${avg_time.toFixed(2)} minutes`);
+
+    for (const [time, init_event] of gameEvents) {
+      const value = time < 45 ? 'FIRST HALF' : 'SECOND HALF';
+      console.log(`[${value}] ${time} : ${init_event}`);
+    }
+  </script>
+</html>
