@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Challenge 2</h1>
+  </body>
+  <script>
+    let players1 = [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ];
+    let players2 = [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ];
+    const gk = players1[0];
+    const fieldPlayers = players1.slice(1);
+    const allPlayers = [...players1, players2];
+    const players1Final = ['Thiago', 'Coutinho', 'Perisic'];
+    const game = {
+      team1: 'Bayern Munich',
+      team2: 'Borrussia Dortmund',
+      players: [
+        [
+          'Neuer',
+          'Pavard',
+          'Martinez',
+          'Alaba',
+          'Davies',
+          'Kimmich',
+          'Goretzka',
+          'Coman',
+          'Muller',
+          'Gnarby',
+          'Lewandowski',
+        ],
+        [
+          'Burki',
+          'Schulz',
+          'Hummels',
+          'Akanji',
+          'Hakimi',
+          'Weigl',
+          'Witsel',
+          'Hazard',
+          'Brandt',
+          'Sancho',
+          'Gotze',
+        ],
+      ],
+      score: '4:0',
+      scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+      date: 'Nov 9th, 2037',
+      odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+      },
+    };
+
+    //1
+    game.scored.map((name, index) => {
+      console.log(`🚀 ~ Goal ${index + 1}:`, name);
+      return;
+    });
+    //2
+    console.log('avg: ', (Object.values(game.odds).reduce((v, t) => v + t) / 3).toFixed(2));
+
+    //3
+    [{ team1: game.odds.team1 }, { draw: game.odds.x }, { team2: game.odds.team2 }].map((value) => {
+      console.log(
+        `Odd of ${Object.keys(value) == 'draw' ? 'draw' : game[Object.keys(value)]}:`,
+        ...Object.values(value),
+      );
+      return;
+    });
+    //4
+    let mapArr = new Map();
+    game.scored.map((x) => {
+      if (mapArr.has(x)) {
+        mapArr.set(x, mapArr.get(x) + 1);
+      } else mapArr.set(x, 1);
+    });
+    console.log('🚀 ~ scorers:', mapArr);
+  </script>
+</html>
