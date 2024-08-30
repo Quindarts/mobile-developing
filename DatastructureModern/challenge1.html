@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Challenge 1</h1>
+  </body>
+  <script>
+    let players1 = [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ];
+    let players2 = [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ];
+    const gk = players1[0];
+    const fieldPlayers = players1.slice(1);
+    const allPlayers = [...players1, players2];
+    const players1Final = ['Thiago', 'Coutinho', 'Perisic'];
+    const game = {
+      team1: 'Bayern Munich',
+      team2: 'Borrussia Dortmund',
+      players: [
+        [
+          'Neuer',
+          'Pavard',
+          'Martinez',
+          'Alaba',
+          'Davies',
+          'Kimmich',
+          'Goretzka',
+          'Coman',
+          'Muller',
+          'Gnarby',
+          'Lewandowski',
+        ],
+        [
+          'Burki',
+          'Schulz',
+          'Hummels',
+          'Akanji',
+          'Hakimi',
+          'Weigl',
+          'Witsel',
+          'Hazard',
+          'Brandt',
+          'Sancho',
+          'Gotze',
+        ],
+      ],
+      score: '4:0',
+      scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+      date: 'Nov 9th, 2037',
+      odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+      },
+    };
+
+    // Test Call 1
+    printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+    // Test Call 2
+    printGoals(...game.scored);
+
+    function printGoals(...player_name) {
+      console.log('Goals scored by:');
+      player_name.forEach((name) => console.log(name));
+      console.log(`Total goals scored: ${player_name.length}`);
+    }
+    let name1 = game.team1;
+    let name2 = game.team2;
+    let values = [{ team1: game.odds.team1 }, { team2: game.odds.team2 }];
+    let team_win_value = Math.min(...values.map((a) => Object.values(a)[0]));
+    let rs = values.filter((item) => {
+      const [key] = Object.keys(item);
+      const value = item[key];
+      return value === team_win_value;
+    })[0];
+    console.log('🚀 ~ Team win:', game[`${Object.keys(rs)}`]);
+  </script>
+</html>
