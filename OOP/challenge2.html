@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>challenge2</h1>
+  </body>
+  <script>
+    class CarCl {
+      constructor(make, speed) {
+        this.make = make;
+        this.speed = speed;
+      }
+      accelerate() {
+        this.speed += 10;
+        console.log(`${this.make} is now going at ${this.speed} km/h`);
+      }
+      brake() {
+        this.speed -= 5;
+        console.log(`${this.make} is now going at ${this.speed} km/h`);
+      }
+      get speedUS() {
+        return this.speed / 1.6;
+      }
+      set speedUS(speed) {
+        this.speed = speed * 1.6;
+      }
+    }
+    const ford = new CarCl('Ford', 120);
+    ford.accelerate();
+    ford.brake();
+    console.log(`Current speed in mi/h: ${ford.speedUS}`);
+
+    ford.speedUS = 75; // Thiết lập tốc độ theo mi/h
+    console.log(`Speed after setting in mi/h: ${ford.speed} km/h`);
+  </script>
+</html>

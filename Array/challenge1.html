@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Challenge 1</h1>
+  </body>
+  <script>
+    // Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+    // 1
+    console.log('Data test 1:');
+    let julia_Data1 = [3, 5, 2, 12, 7];
+    julia_Data1.shift();
+    julia_Data1.pop();
+
+    let merge1 = [...julia_Data1, ...[4, 1, 15, 8, 3]].map((dog_age, index) => {
+      if (dog_age <= 3) {
+        console.log(`Dog number ${index + 1} is still a puppy`);
+      } else console.log(`Dog number ${index + 1} is an adult, and is ${dog_age} years old`);
+    });
+    //2
+    console.log('Data test 2:');
+    let julia_Data2 = [9, 16, 6, 8, 3];
+    julia_Data2.shift();
+    julia_Data2.pop();
+
+    let merge2 = [...julia_Data2, ...[10, 5, 6, 1, 4]].map((dog_age, index) => {
+      if (dog_age <= 3) {
+        console.log(`Dog number ${index + 1} is still a puppy`);
+      } else console.log(`Dog number ${index + 1} is an adult, and is ${dog_age} years old`);
+    });
+  </script>
+</html>

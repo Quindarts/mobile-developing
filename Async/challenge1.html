@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Challenge1</h1>
+  </body>
+  <script>
+    function whereAmI(lat, lng) {
+      const url = `https://geocode.xyz/${lat},${lng}?geoit=json`;
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) throw new Error(`Problem with geocoding (${response.status})`);
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          console.log(`You are in ${data.city}, ${data.country}`);
+          return fetch(`https://restcountries.com/v3.1/name/${data.country}`);
+        })
+        .then((response) => {
+          if (!response.ok)
+            throw new Error(`Problem with country information (${response.status})`);
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data[0]);
+        })
+        .catch((err) => {
+          console.error(`${err.message}`);
+        });
+    }
+    whereAmI(52.508, 13.381);
+    whereAmI(19.037, 72.873);
+    whereAmI(-33.933, 18.474);
+  </script>
+</html>
